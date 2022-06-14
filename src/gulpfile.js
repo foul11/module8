@@ -112,6 +112,18 @@ let tasks = {
 							test: /\.(png|svg|jpg|jpeg|gif)$/i,
 							type: 'asset/inline',
 						},
+						{
+							test: /\.(obj)$/i,
+							type: 'asset/inline',
+						},
+						{
+							test: /\.(ttf)$/i,
+							type: 'asset/inline',
+						},
+						{
+							test: /\.(json)$/i,
+							type: 'asset/inline',
+						},
 					],
 				},
 			}, compiler))
@@ -143,7 +155,7 @@ let tasks = {
 	watch(cb){
 		refresh.listen();
 		
-		gulp.watch(['img/*', 'resource.js'], tasks.bundlePacker);
+		gulp.watch(['../img/**/*', '../fonts/**/*', 'resource.js'], tasks.bundlePacker);
 		gulp.watch(['THREE.js'], tasks.buildTHREE);
 		gulp.watch(['src/**/*.js', '!src/**/_ignore/**/*', 'config.js'], tasks.build);
 		gulp.watch(['src/less/**/*.less'], tasks.less);
